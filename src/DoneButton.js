@@ -8,6 +8,8 @@ const size = "4em";
 const Root = styled(Flex)`
   cursor: pointer;
   height: ${size};
+  width: ${size};
+  border-radius: ${size};
 `;
 
 const DoneButton = props => (

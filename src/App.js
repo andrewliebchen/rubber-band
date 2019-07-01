@@ -4,9 +4,13 @@ import DoneButton from "./DoneButton";
 import { Flex, Text, Box } from "rebass";
 import styled from "styled-components";
 import Input from "./Input";
+import Switch from "./Switch";
 
 const Root = styled(Flex)`
-  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
 `;
 
 function App() {
@@ -15,27 +19,17 @@ function App() {
     "bring home the milk"
   );
   return (
-    <Root
-      justifyContent="space-between"
-      alignItems="center"
-      flexDirection="column"
-    >
-      <Flex
-        flex="auto"
-        alignSelf="stretch"
-        justifyContent="center"
-        flexDirection="column"
-      >
-        <Text fontWeight="bold" mb={2} textAlign="center">
-          Don't forget to
-        </Text>
-        <Input
-          type="text"
-          placeholder="bring home the milk"
-          value={value || ""}
-          onChange={event => set(event.target.value)}
-        />
-      </Flex>
+    <Root flexDirection="column" alignItems="center">
+      <Switch value={value} mb={2} />
+      <Text fontWeight="bold" mb={2} textAlign="center">
+        Don't forget to
+      </Text>
+      <Input
+        type="text"
+        placeholder="bring home the milk"
+        value={value || ""}
+        onChange={event => set(event.target.value)}
+      />
       <DoneButton onClick={remove} />
     </Root>
   );
